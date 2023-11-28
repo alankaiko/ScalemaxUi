@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class MenuService {
@@ -15,6 +15,6 @@ export class MenuService {
     }
 
     reset() {
-       this.resetSource.next(true);
+        this.resetSource.next(true);
     }
 }

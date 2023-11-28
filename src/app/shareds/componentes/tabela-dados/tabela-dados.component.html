@@ -1,0 +1,114 @@
+<p-table #tabelaDados
+         [value]="entidades"
+         [dataKey]="dataKey"
+         [columns]="colunas"
+         [lazy]="lazy"
+         [responsiveLayout]="responsiveLayout"
+         [showCurrentPageReport]="showCurrentPageReport"
+         [paginator]="paginator"
+         [styleClass]="styleClass"
+         [rows]="rows"
+         [rowHover]="rowHover"
+         [totalRecords]="totalRecords"
+         (onLazyLoad)="onLazyLoad.emit($event)"
+         [selectionMode]="selectionMode"
+         [(selection)]="selection"
+         [globalFilterFields]="globalFilterFields">
+
+    <ng-template pTemplate="caption" *ngIf="possuiFiltro">
+        <div class="flex justify-content-between flex-column sm:flex-row">
+            <div class="col-2">
+                <campo-botao (click)="clear(tabelaDados)"
+                             [styleClass]="'p-button-outlined p-button-secondary'"
+                             [label]="'Limpar Filtro'">
+                </campo-botao>
+            </div>
+
+            <div class="col-5 titulo-tabela">
+                <h2 *ngIf="tituloTabela">
+                    {{tituloTabela}}
+                </h2>
+            </div>
+
+            <div class="col-2">
+
+            </div>
+
+            <div class="col-3">
+                <div class="p-inputgroup">
+          <span class="p-inputgroup-addon">
+            <i class="pi pi-search"></i>
+          </span>
+
+                    <input type="text"
+                           pInputText
+                           placeholder="Pesquisar"
+                           #filtroTabela
+                           (input)="tabelaDados.filterGlobal(filtroTabela.value, 'contains')">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngIf="verRef"
+
+                [width]="'5%'">
+
+                Ver
+            </th>
+
+            <th *ngFor="let coluna of colunas"
+                [class]="coluna.styleClass"
+                [width]="coluna.width">
+
+                <span>
+                    {{coluna.titulo}}
+                </span>
+            </th>
+
+            <th *ngIf="acoesRef"
+
+                [width]="'10%'">
+
+                Ações
+            </th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-entidade let-columns="columns">
+        <tr (dblclick)="duploClicke.emit(entidade)"
+            [ngStyle]="{backgroundColor: tabelaAgenda ? entidade.medico.cor : entidade.cor}">
+            <td *ngIf="verRef" class="coluna-ver">
+                <ng-container>
+                    <ng-template [ngTemplateOutlet]="verRef"
+                                 [ngTemplateOutletContext]="{$implicit: entidade}">
+                    </ng-template>
+                </ng-container>
+            </td>
+
+            <td *ngFor="let coluna of colunas">
+                <span>{{getValorDoCampo(entidade, coluna)}}</span>
+            </td>
+
+            <td *ngIf="acoesRef" class="coluna-acoes flex justify-content-center">
+                <ng-container>
+                    <ng-template [ngTemplateOutlet]="acoesRef"
+                                 [ngTemplateOutletContext]="{$implicit: entidade}">
+                    </ng-template>
+                </ng-container>
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+        Lista não encontrada.
+    </ng-template>
+
+    <ng-template pTemplate="paginatorleft" *ngIf="botoes">
+        <ng-container>
+            <ng-template [ngTemplateOutlet]="botoes"></ng-template>
+        </ng-container>
+    </ng-template>
+</p-table>

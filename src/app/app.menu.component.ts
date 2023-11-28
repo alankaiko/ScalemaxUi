@@ -34,6 +34,12 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'Bancos',
+                items:[
+                    {label: 'Banco',icon: 'pi pi-fw pi-home', routerLink: ['/pages/banks']}
+                ]
+            },
+            {
                 label: 'UI Components',
                 items: [
                     {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},

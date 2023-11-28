@@ -1,0 +1,28 @@
+<tabela-dados [entidades]="banks"
+              [colunas]="colunas"
+              [dataKey]="'codigo'"
+              [rows]="filtro.itensPorPagina"
+              [paginator]="true"
+              [lazy]="true"
+              [possuiFiltro]="true"
+              [totalRecords]="totalRegistros"
+              [styleClass]="'p-datatable-gridlines'"
+              [globalFilterFields]="['nome']"
+              [responsiveLayout]="'scroll'"
+              (onLazyLoad)="changePage($event)"
+              [rowHover]="true">
+
+    <ng-template #acoes let-item>
+        <campo-button-a [img]="'assets/icone-menu/editar.png'"
+                        [possuiImagem]="true"
+                        (click)="edit(item.codigo)"
+                        [style]="{marginLeft: '2px'}">
+        </campo-button-a>
+
+        <campo-button-a [img]="'assets/icone-menu/excluir.png'"
+                        [possuiImagem]="true"
+                        (click)="delete(item)"
+                        [style]="{marginLeft: '2px'}">
+        </campo-button-a>
+    </ng-template>
+</tabela-dados>

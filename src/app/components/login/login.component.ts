@@ -29,9 +29,9 @@ export class LoginComponent implements OnInit, OnDestroy {
   valCheck: string[] = ['remember'];
 
   password: string;
-  
+
   config: AppConfig;
-  
+
   subscription: Subscription;
 
   constructor(public configService: ConfigService){ }
