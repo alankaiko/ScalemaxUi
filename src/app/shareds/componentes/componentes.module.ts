@@ -24,19 +24,22 @@ import {ToolbarModule} from "primeng/toolbar";
 import {DialogModule} from "primeng/dialog";
 import {CardModule} from "primeng/card";
 import {CampoToolbarComponent} from "./campo-toolbar/campo-toolbar.component";
+import {CampoDropdownComponent} from "./campo-dropdown/campo-dropdown.component";
 
 @NgModule({
     declarations: [
         TabelaDadosComponent,
         CampoBotaoComponent,
         CampoTextoComponent,
-        CampoToolbarComponent
+        CampoToolbarComponent,
+        CampoDropdownComponent
     ],
     exports: [
         TabelaDadosComponent,
         CampoBotaoComponent,
         CampoTextoComponent,
-        CampoToolbarComponent
+        CampoToolbarComponent,
+        CampoDropdownComponent
     ],
     imports: [
         CommonModule,

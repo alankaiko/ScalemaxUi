@@ -6,13 +6,16 @@
 
         <div class="grid">
             <div class="col-4">
-                <campo-texto [(texto)]="bank.code"
+                <campo-texto [(texto)]="bank.codigo"
                              [readOnly]="true"
                              [labelText]="'Código'">
                 </campo-texto>
             </div>
 
             <div class="col-4">
+                <campo-texto [(texto)]="bank.code"
+                             [labelText]="'Sigla'">
+                </campo-texto>
             </div>
 
             <div class="col-4">

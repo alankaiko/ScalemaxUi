@@ -1,0 +1,21 @@
+<div [style]="style" class="campo-container-dropdown">
+  <label *ngIf="possuiLabel">{{labelText}}</label>
+  <p-dropdown #inputNativo
+              [class]="classe"
+              [required]="required"
+              [filter]="filtro"
+              [readonly]="readOnly"
+              [dataKey]="dataKey"
+              [placeholder]="placeholder"
+              [optionLabel]="optionLabel"
+              [optionValue]="optionValue"
+              (onChange)="change.emit()"
+              [(ngModel)]="texto"
+              [style]="{'background-color': possuiCor ? corLabel : '', 'width': '100%'}"
+              [options]="options"
+              [autoDisplayFirst]="autoDisplayFirst"
+              appendTo="body">
+  </p-dropdown>
+</div>
+
+

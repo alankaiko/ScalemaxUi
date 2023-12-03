@@ -1,0 +1,86 @@
+<p-toast [style]="{marginBottom: '50px'}" position="bottom-right"></p-toast>
+
+<div class="grid">
+    <div class="card col-12">
+        <h5>Banco</h5>
+
+        <div class="grid">
+            <div class="col-4">
+                <campo-texto [(texto)]="account.codigo"
+                             [readOnly]="true"
+                             [labelText]="'Código'">
+                </campo-texto>
+            </div>
+
+            <div class="col-8">
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.name"
+                             [labelText]="'Título'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.code"
+                             [labelText]="'Conta Corrente'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.agency"
+                             [labelText]="'Agência'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.passwordCard"
+                             [type]="'password'"
+                             [labelText]="'Password'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.passwordEmail"
+                             [type]="'password'"
+                             [labelText]="'Password Email'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+                <campo-texto [(texto)]="account.passwordApp"
+                             [type]="'password'"
+                             [labelText]="'Password App'">
+                </campo-texto>
+            </div>
+
+            <div class="col-12">
+                <campo-dropdown [options]="dropBanks"
+                                [labelText]="'Banco'"
+                                [placeholder]="'Selecione o banco..'"
+                                [autoDisplayFirst]="false"
+                                [(texto)]="account.bank">
+                </campo-dropdown>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <campo-toolbar>
+            <ng-template #ladoEsquerdo>
+                <campo-botao [label]="'Salvar'"
+                             [icon]="'pi pi-save'"
+                             (click)="salvar()">
+                </campo-botao>
+            </ng-template>
+
+            <ng-template #ladoDireito>
+                <campo-botao [label]="'Voltar'"
+                             [styleClass]="'p-button-outlined p-button-danger'"
+                             [icon]="'pi pi-arrow-left'"
+                             (click)="voltar()">
+                </campo-botao>
+            </ng-template>
+        </campo-toolbar>
+    </div>
+</div>

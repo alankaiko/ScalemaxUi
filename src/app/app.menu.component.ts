@@ -40,6 +40,12 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'Conta Bancária',
+                items:[
+                    {label: 'Conta Bancária',icon: 'pi pi-fw pi-home', routerLink: ['/pages/account-banks']}
+                ]
+            },
+            {
                 label: 'UI Components',
                 items: [
                     {label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout']},
@@ -135,7 +141,7 @@ export class AppMenuComponent implements OnInit {
                         label: 'Documentation', icon: 'pi pi-fw pi-question', routerLink: ['/documentation']
                     },
                     {
-                        label: 'View Source', icon: 'pi pi-fw pi-search', url: ['https://github.com/primefaces/sakai-ng'], target: '_blank'
+                        label: 'View Source', icon: 'pi pi-fw pi-search', url: ['https://github.com/primefaces/scalemax-ui'], target: '_blank'
                     }
                 ]
             }
