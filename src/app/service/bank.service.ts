@@ -23,7 +23,7 @@ export class BankService extends AbstractCrudService<Bank, BankDTO> {
         if (filtro.nome)
             params = params.append('nome', filtro.nome);
 
-        return this.http.get<any>(this.url(`resumo`), {params})
+        return this.http.get<any>(this.url() + '?resumo', {params})
             .toPromise()
             .then(response => {
                 const banks = response;

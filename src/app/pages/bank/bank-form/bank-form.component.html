@@ -1,1 +1,59 @@
-<p>bank-form works!</p>
+<p-toast [style]="{marginBottom: '50px'}" position="bottom-right"></p-toast>
+
+<div class="grid">
+    <div class="card col-12">
+        <h5>Banco</h5>
+
+        <div class="grid">
+            <div class="col-4">
+                <campo-texto [(texto)]="bank.code"
+                             [readOnly]="true"
+                             [labelText]="'Código'">
+                </campo-texto>
+            </div>
+
+            <div class="col-4">
+            </div>
+
+            <div class="col-4">
+                <campo-texto [labelText]="'Intervalo'"
+                             [type]="'number'"
+                             [step]="'1'"
+                             [min]="'0'"
+                             [(texto)]="bank.gap">
+                </campo-texto>
+            </div>
+
+            <div class="col-12">
+                <campo-texto [(texto)]="bank.name"
+                             [labelText]="'Nome'">
+                </campo-texto>
+            </div>
+
+            <div class="col-12">
+                <campo-texto [(texto)]="bank.description"
+                             [labelText]="'Descrição'">
+                </campo-texto>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <campo-toolbar>
+            <ng-template #ladoEsquerdo>
+                <campo-botao [label]="'Salvar'"
+                             [icon]="'pi pi-save'"
+                             (click)="salvar()">
+                </campo-botao>
+            </ng-template>
+
+            <ng-template #ladoDireito>
+                <campo-botao [label]="'Voltar'"
+                             [styleClass]="'p-button-outlined p-button-danger'"
+                             [icon]="'pi pi-arrow-left'"
+                             (click)="voltar()">
+                </campo-botao>
+            </ng-template>
+        </campo-toolbar>
+    </div>
+</div>

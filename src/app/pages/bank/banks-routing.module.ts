@@ -9,7 +9,11 @@ const routes: Routes = [
         component: BankListComponent,
     },
     {
-        path: 'banks/register',
+        path: 'register',
+        component: BankFormComponent,
+    },
+    {
+        path: 'register/:cod',
         component: BankFormComponent,
     }
 ];

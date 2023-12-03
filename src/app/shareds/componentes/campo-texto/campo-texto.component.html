@@ -1,0 +1,20 @@
+<div class="campo-container-texto" [style]="campoTextoStyle">
+  <label>{{labelText}}</label>
+  <input #inputNativo
+         pInputText
+         [type]="type"
+         [step]="step"
+         [min]="min"
+         [max]="max"
+         [pattern]="pattern"
+         [class]="classe"
+         [id]="id"
+         [required]="required"
+         [readOnly]="readOnly"
+         [disabled]="disabled"
+         [maxlength]="maxlength"
+         [placeholder]="placeholder"
+         [(ngModel)]="texto">
+</div>
+
+

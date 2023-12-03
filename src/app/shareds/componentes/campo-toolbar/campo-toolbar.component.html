@@ -1,0 +1,14 @@
+<p-toolbar class="col-12">
+  <div class="p-toolbar-group-left" *ngIf="ladoEsquerdo">
+    <ng-container>
+      <ng-template [ngTemplateOutlet]="ladoEsquerdo" ></ng-template>
+    </ng-container>
+  </div>
+
+
+  <div class="p-toolbar-group-right" *ngIf="ladoDireito">
+    <ng-container>
+      <ng-template [ngTemplateOutlet]="ladoDireito" ></ng-template>
+    </ng-container>
+  </div>
+</p-toolbar>

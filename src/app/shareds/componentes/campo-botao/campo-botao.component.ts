@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'campo-botao',
@@ -14,9 +14,6 @@ export class CampoBotaoComponent implements OnInit {
     @Input() type: string;
     @Input() label: string;
     @Input() icon: string;
-
-    private value!: any;
-    @Output() valueChange: EventEmitter<any> = new EventEmitter<any>();
 
     ngOnInit(): void {
     }

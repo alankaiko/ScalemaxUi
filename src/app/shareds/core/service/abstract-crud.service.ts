@@ -19,7 +19,7 @@ export abstract class AbstractCrudService<T extends AbstractEntity, D extends Ab
     }
 
     buscarId(codigo: number): Observable<T> {
-        return this.http.get(this.url(`${codigo}`), this.options()).pipe(
+        return this.http.get<T>(this.url(`${codigo}`), this.options()).pipe(
             map(this.mapper),
             catchError(this.handleError)
         );
@@ -33,25 +33,32 @@ export abstract class AbstractCrudService<T extends AbstractEntity, D extends Ab
     }
 
     listar(): Observable<T[]> {
-        return this.http.get(this.url(), this.options()).pipe(
+        return this.http.get<T>(this.url(), this.options()).pipe(
             map(this.mapper),
             catchError(this.handleError)
         );
     }
 
     salvar(entidade: T): Observable<T> {
-        return this.http.post(this.url(), entidade, this.options()).pipe(
+        return this.http.post<T>(this.url(), entidade, this.options()).pipe(
             map(this.mapper),
             catchError(this.handleError)
         );
     }
 
     deletar(codigo: number): Observable<T> {
-        return this.http.delete(this.url(`${codigo}`)).pipe(
+        return this.http.delete<T>(this.url(`${codigo}`)).pipe(
             map(() => null),
             catchError(this.handleError)
         );
     }
 
 
+    atualizar(entidade: T): Observable<T> {
+        return this.http.put(`${this.url(`${entidade.codigo}`)}`, entidade)
+            .pipe(
+                map(this.mapper),
+                catchError(this.handleError)
+            );
+    }
 }
