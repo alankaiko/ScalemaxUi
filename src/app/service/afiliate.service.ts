@@ -26,10 +26,10 @@ export class AfiliateService extends AbstractCrudService<Afiliate, AfiliateDTO> 
         return this.http.get<any>(this.url(`?resumo`), {params})
             .toPromise()
             .then(response => {
-                const accounts = response;
+                const afiliates = response;
 
                 const resultado = {
-                    accounts,
+                    afiliates,
                     total: response.totalElements
                 };
 

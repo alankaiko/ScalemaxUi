@@ -1,21 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {Bank} from "../../../shareds/models/bank";
-import {Location} from '@angular/common';
-import {ConfirmationService, MessageService} from "primeng/api";
-import {BankService} from "../../../service/bank.service";
+import {Location} from "@angular/common";
 import {ActivatedRoute, Router} from "@angular/router";
+import {ConfirmationService, MessageService} from "primeng/api";
+import {Afiliate} from "../../../shareds/models/afiliate";
+import {AfiliateService} from "../../../service/afiliate.service";
 
 @Component({
-    selector: 'app-bank-form',
-    templateUrl: './bank-form.component.html',
-    styleUrls: ['./bank-form.component.scss'],
-    providers: [MessageService, ConfirmationService]
+    selector: 'app-afiliate-form',
+    templateUrl: './afiliate-form.component.html',
+    styleUrls: ['./afiliate-form.component.scss'],
+    providers: [ConfirmationService, MessageService]
 })
-export class BankFormComponent implements OnInit {
-    bank = new Bank;
+export class AfiliateFormComponent implements OnInit {
+    afiliate = new Afiliate;
 
     constructor(private location: Location,
-                private bankService: BankService,
+                private afiliateService: AfiliateService,
                 private router: Router,
                 private activatedRoute: ActivatedRoute,
                 private confirmationService: ConfirmationService,
@@ -26,11 +26,11 @@ export class BankFormComponent implements OnInit {
         const codigo = this.activatedRoute.snapshot.params.cod;
 
         if (codigo)
-            this.bankService.buscarId(codigo).subscribe(bank => this.bank = bank);
+            this.afiliateService.buscarId(codigo).subscribe(afiliate => this.afiliate = afiliate);
     }
 
     get editando() {
-        return Boolean(this.bank.codigo)
+        return Boolean(this.afiliate.codigo)
     }
 
     salvar() {
@@ -47,10 +47,10 @@ export class BankFormComponent implements OnInit {
     }
 
     private adicionar() {
-        this.bankService.salvar(this.bank).subscribe(bank => {
-            if (bank) {
-                this.bank = bank;
-                this.router.navigate(['/pages/banks']);
+        this.afiliateService.salvar(this.afiliate).subscribe(afiliate => {
+            if (afiliate) {
+                this.afiliate = afiliate;
+                this.router.navigate(['/pages/afiliates']);
             } else {
                 this.showMessage('error', 'Erro', 'Erro ao salvar Banco');
             }
@@ -58,10 +58,10 @@ export class BankFormComponent implements OnInit {
     }
 
     private atualizar() {
-        this.bankService.atualizar(this.bank).subscribe(bank => {
-            if (bank) {
-                this.bank = bank;
-                this.router.navigate(['/pages/banks']);
+        this.afiliateService.atualizar(this.afiliate).subscribe(afiliate => {
+            if (afiliate) {
+                this.afiliate = afiliate;
+                this.router.navigate(['/pages/afiliates']);
             } else {
                 this.showMessage('error', 'Erro', 'Erro ao salvar Banco');
             }

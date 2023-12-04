@@ -1,0 +1,36 @@
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+<tabela-dados [entidades]="afiliates"
+              [colunas]="colunas"
+              [dataKey]="'codigo'"
+              [rows]="filtro.itensPorPagina"
+              [paginator]="true"
+              [lazy]="true"
+              [possuiFiltro]="true"
+              [totalRecords]="totalRegistros"
+              [styleClass]="'p-datatable-gridlines'"
+              [globalFilterFields]="['name']"
+              [responsiveLayout]="'scroll'"
+              (onLazyLoad)="changePage($event)"
+              [rowHover]="true">
+
+    <ng-template #acoes let-item>
+        <campo-botao [icon]="'fa fa-edit'"
+                     [routerLink]="['/pages/afiliates/register', item.codigo]"
+                     [style]="{marginLeft: '2px'}">
+        </campo-botao>
+
+        <campo-botao [icon]="'fa fa-trash'"
+                     (click)="delete(item.codigo)"
+                     [style]="{marginLeft: '2px'}">
+        </campo-botao>
+    </ng-template>
+
+    <ng-template #botoes>
+        <campo-botao [label]="'Novo Registro'"
+                     [icon]="'pi pi-plus'"
+                     [style]="{marginRight: '2px'}"
+                     routerLink="/pages/afiliates/register">
+        </campo-botao>
+    </ng-template>
+</tabela-dados>

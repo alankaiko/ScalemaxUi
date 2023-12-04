@@ -36,7 +36,8 @@ export class AppMenuComponent implements OnInit {
                 label: 'Cadastros',
                 items: [
                     {label: 'Banco', icon: 'pi pi-fw pi-home', routerLink: ['/pages/banks']},
-                    {label: 'Conta Bancária', icon: 'pi pi-fw pi-home', routerLink: ['/pages/account-banks']}
+                    {label: 'Conta Bancária', icon: 'pi pi-fw pi-home', routerLink: ['/pages/account-banks']},
+                    {label: 'Afiliados', icon: 'pi pi-fw pi-home', routerLink: ['/pages/afiliates']}
                 ]
             }
         ];

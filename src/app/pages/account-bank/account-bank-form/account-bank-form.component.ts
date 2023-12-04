@@ -29,7 +29,7 @@ export class AccountBankFormComponent implements OnInit {
         const codigo = this.activatedRoute.snapshot.params.cod;
 
         if (codigo)
-            this.accountBankService.buscarId(codigo).subscribe(response => this.account = response);
+            this.accountBankService.buscarId(codigo).subscribe(account => this.account = account);
 
         this.carregarBanks();
     }
