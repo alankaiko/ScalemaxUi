@@ -20,8 +20,8 @@ export class LineService extends AbstractCrudService<Line, LineDTO> {
             }
         });
 
-        if (filtro.nome)
-            params = params.append('nome', filtro.nome);
+        if (filtro.name)
+            params = params.append('name', filtro.name);
 
         return this.http.get<any>(this.url(`?resumo`), {params})
             .toPromise()

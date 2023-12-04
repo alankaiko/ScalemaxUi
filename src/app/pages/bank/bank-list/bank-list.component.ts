@@ -58,7 +58,7 @@ export class BankListComponent implements OnInit {
 
     changePage(event?: LazyLoadEvent) {
         setTimeout(() => {
-            this.filtro.nome = event.globalFilter;
+            this.filtro.name = event.globalFilter;
             const pagina = event.first! / event.rows!;
             this.findByFilter(pagina);
         }, 250);

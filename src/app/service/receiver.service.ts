@@ -20,8 +20,8 @@ export class ReceiverService extends AbstractCrudService<Receiver, ReceiverDTO> 
             }
         });
 
-        if (filtro.nome)
-            params = params.append('nome', filtro.nome);
+        if (filtro.name)
+            params = params.append('name', filtro.name);
 
         return this.http.get<any>(this.url(`?resumo`), {params})
             .toPromise()
