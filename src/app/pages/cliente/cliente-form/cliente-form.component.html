@@ -2,11 +2,11 @@
 
 <div class="grid">
     <div class="card col-12">
-        <h5>Afiliado</h5>
+        <h5>Conta Bancária</h5>
 
         <div class="grid">
             <div class="col-4">
-                <campo-texto [(texto)]="afiliate.codigo"
+                <campo-texto [(texto)]="client.codigo"
                              [readOnly]="true"
                              [labelText]="'Código'">
                 </campo-texto>
@@ -16,31 +16,35 @@
             </div>
 
             <div class="col-12">
-                <campo-texto [(texto)]="afiliate.name"
+                <campo-texto [(texto)]="client.name"
                              [labelText]="'Nome'">
                 </campo-texto>
             </div>
 
-            <div class="col-12">
-                <campo-texto [(texto)]="afiliate.email"
-                             [labelText]="'Email'">
+            <div class="col-6">
+                <campo-texto-mascara [(texto)]="client.cpf"
+                                     [labelText]="'CPF'"
+                                     [mascara]="'999.999.999-99'"
+                                     [id]="'cpfPaciente'">
+                </campo-texto-mascara>
+            </div>
+
+            <div class="col-6">
+                <campo-texto [(texto)]="client.rg"
+                             [labelText]="'RG'">
                 </campo-texto>
             </div>
 
             <div class="col-6">
-                <campo-texto [(texto)]="afiliate.password"
+                <campo-texto [(texto)]="client.login"
+                             [labelText]="'Login'">
+                </campo-texto>
+            </div>
+
+            <div class="col-6">
+                <campo-texto [(texto)]="client.password"
                              [type]="'password'"
-                             [labelText]="'Password'">
-                </campo-texto>
-            </div>
-
-            <div class="col-6">
-                <campo-texto [labelText]="'Comissão'"
-                             [type]="'number'"
-                             [step]="'0,1'"
-                             [min]="'0'"
-                             [pattern]="'\d+(\.\d{1})?'"
-                             [(texto)]="afiliate.commission">
+                             [labelText]="'Password Email'">
                 </campo-texto>
             </div>
         </div>

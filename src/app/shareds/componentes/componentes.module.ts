@@ -25,6 +25,7 @@ import {DialogModule} from "primeng/dialog";
 import {CardModule} from "primeng/card";
 import {CampoToolbarComponent} from "./campo-toolbar/campo-toolbar.component";
 import {CampoDropdownComponent} from "./campo-dropdown/campo-dropdown.component";
+import {CampoTextoMascaraComponent} from "./campo-texto-mascara/campo-texto-mascara.component";
 
 @NgModule({
     declarations: [
@@ -32,14 +33,16 @@ import {CampoDropdownComponent} from "./campo-dropdown/campo-dropdown.component"
         CampoBotaoComponent,
         CampoTextoComponent,
         CampoToolbarComponent,
-        CampoDropdownComponent
+        CampoDropdownComponent,
+        CampoTextoMascaraComponent
     ],
     exports: [
         TabelaDadosComponent,
         CampoBotaoComponent,
         CampoTextoComponent,
         CampoToolbarComponent,
-        CampoDropdownComponent
+        CampoDropdownComponent,
+        CampoTextoMascaraComponent
     ],
     imports: [
         CommonModule,

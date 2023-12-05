@@ -1,0 +1,13 @@
+.campo-container-mascara {
+  display: inline-grid;
+  width: 100%;
+}
+
+::ng-deep p-inputmask .p-inputtext {
+  width: 100%;
+  padding-left: 5px !important;
+}
+
+label {
+  font-size: 13px;
+}
